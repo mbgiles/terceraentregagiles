@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(232, 227, 236);
+    text-align: center;
+}
+
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+label {
+    font-family: sans-serif;
+    font-weight: bold; 
+    font-size: 16px;   
+    color: #333;       
+    display: block;    
+    margin-bottom: 30px; 
+  }
+  
+  select {
+    width: 20%;  
+    padding: 5px;  
+    border: 1px solid #ccc0; 
+    border-radius: 5px;    
+    background-color: #f8f8f8; 
+    color: #333;   
+    font-size: 14px; 
+  }
+  
+button {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+}

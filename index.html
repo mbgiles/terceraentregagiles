@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor de Monedas</title>
+    <style>@import url(css/style.css);</style>
+</head>
+<body>
+
+    <main>
+    <h1>Conversor de Monedas</h1>
+    <form id="conversorForm">
+        <div>
+        <label>Operación deseada:
+            <select id="opcionesConvertir">
+
+            
+                <option value="1">Convertir Dólar Oficial a Pesos</option>
+                <option value="2">Convertir Dólar Blue a Pesos</option>
+                <option value="3">Convertir Pesos a Dólares</option>
+            </select>
+        </label>
+    </div>
+        <br>
+        <div>
+        <label>Monto:
+            <input type="number" id="montoInput">
+        </label>
+    </div>
+        <br>
+        <button type="button" id="convertirButton">Convertir</button>
+
+    </form>
+    <div id="resultadoTexto"></div>
+    
+
+    <script src="./main.js"></script>
+
+        </main>
+</body>
+</html>
