@@ -3,15 +3,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const opcionesConvertir = document.getElementById("opcionesConvertir");
     const montoInput = document.getElementById("montoInput");
     const convertirButton = document.getElementById("convertirButton");
+    const historialDiv = document.getElementById("historialDiv");
 
-    // Recuperar el historial de montos desde LocalStorage
-    const historialMontos = JSON.parse(localStorage.getItem("historialMontos")) || [];
+// Recuperar el historial de montos desde LocalStorage
+const historialResultados = JSON.parse(localStorage.getItem("historialResultados")) || [];
 
-    // Función para actualizar y guardar el historial en LocalStorage
-    function actualizarHistorial(monto) {
-        historialMontos.push(monto);
-        localStorage.setItem("historialMontos", JSON.stringify(historialMontos));
-    }
+// Función para actualizar y guardar el historial en LocalStorage
+function actualizarHistorial(resultadoTexto) {
+    historialResultados.push(resultadoTexto);
+    localStorage.setItem("historialResultados", JSON.stringify(historialResultados));
+
+    // Actualizar el contenido del historial
+    mostrarHistorial();
+}
+
+// Función para mostrar el historial
+function mostrarHistorial() {
+    const historialDiv = document.getElementById("historialDiv"); 
+historialDiv.innerHTML = "";
+    // Limpiar el contenido 
+    historialDiv.innerHTML = "";
+
+    // Agregar cada monto como un párrafo
+    historialResultados.forEach(resultadoTexto => {
+        const p = document.createElement("p");
+        p.textContent =  resultadoTexto;
+        historialDiv.appendChild(p);
+    });
+}
+
+// Llamar a la función para mostrar el historial al cargar la página
+        mostrarHistorial();
 
         /// Dolar Oficial a Pesos ///
     function convertirDolarOficialAPesos(monto) {
@@ -44,10 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             /// Resultado ///
-            prompt("Resultado de la conversión:", resultadoTexto);
 
-        } else {
-            alert("Por favor, ingrese un monto válido.");
+            var resultadoTextoElement = document.getElementById("resultadoTexto");
+            var resultado = "resultadoTexto"; 
+            resultadoTextoElement.innerHTML = "Resultado de la conversión es: " + resultadoTexto;
         }
     });
 
@@ -68,12 +90,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 resultadoTexto = `${monto} Pesos son aproximadamente ${convertirPesosADolarOficial(monto).toFixed(2)} Dólares Oficiales.`;
             }
 
-            prompt("Resultado de la conversión:", resultadoTexto);
 
-            /// Actualizar el historial de montos ///
-            actualizarHistorial(monto);
-        } else {
-            alert("Por favor, ingrese un monto válido.");
-        }
+
+            var resultadoTextoElement = document.getElementById("resultadoTexto");
+            var resultado = "resultadoTexto"; 
+            resultadoTextoElement.innerHTML = "Resultado de la conversión es: " + resultadoTexto;
+
+            // Actualizar el historial de resultados
+            actualizarHistorial(resultadoTexto);
+
+        } 
+        else{
+                var ingresonoValidoElement = document.getElementById("ingresonoValido");
+                var ingresono = "Por favor utilice números para realizar la operación";
+                ingresonoValidoElement.innerHTML = ingresono;
+        
+    }
     });
 });
+////////////////////////////////////////////////////////////////
+
+
