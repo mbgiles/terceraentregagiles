@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const convertirButton = document.getElementById("convertirButton");
     const historialDiv = document.getElementById("historialDiv");
 
-// Recuperar el historial de montos desde LocalStorage
+// Recuperar el historial de resultados desde LocalStorage
 const historialResultados = JSON.parse(localStorage.getItem("historialResultados")) || [];
 
 // Función para actualizar y guardar el historial en LocalStorage
@@ -21,6 +21,7 @@ function actualizarHistorial(resultadoTexto) {
 function mostrarHistorial() {
     const historialDiv = document.getElementById("historialDiv"); 
 historialDiv.innerHTML = "";
+
     // Limpiar el contenido 
     historialDiv.innerHTML = "";
 
@@ -108,6 +109,6 @@ historialDiv.innerHTML = "";
     }
     });
 });
-////////////////////////////////////////////////////////////////
+
 
 
